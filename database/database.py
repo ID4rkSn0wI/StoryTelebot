@@ -1,0 +1,43 @@
+import peewee
+
+
+db = peewee.SqliteDatabase('users.db', pragmas={
+    'journal_mode': 'wal',
+    'cache_size': 10000,
+    'foreign_keys': 1
+}
+)
+
+
+class BaseModel(peewee.Model):
+    class Meta:
+        database = db
+
+
+class User(BaseModel):
+    name = peewee.CharField()
+    telegram_id = peewee.IntegerField()
+    state = peewee.CharField(null=True)
+    keyboard = peewee.IntegerField(null=True)
+    generate_story = peewee.BooleanField()
+    generate_image = peewee.BooleanField()
+
+
+db.connect()
+with db:
+    User.create_table()
+
+
+def create_user(name, chat_id):
+    with db:
+        user = User.select().where(User.name == name, User.telegram_id == chat_id)
+        if not user.exists():
+            User.create(
+                name=name,
+                telegram_id=chat_id,
+                state='ready',
+                keyboard=0,
+                generate_story=True,
+                generate_image=False
+            )
+        return User.get(name=name, telegram_id=chat_id)
