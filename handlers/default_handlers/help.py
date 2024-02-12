@@ -3,7 +3,7 @@ from config_data.config import DEFAULT_COMMANDS
 from loader import bot
 from database.database import db, create_user
 from loguru import logger
-from handlers.custom_heandlers.any_message import any_message_handler
+from handlers.custom_handlers.any_message import any_message_handler
 
 
 @bot.message_handler(commands=['help'])

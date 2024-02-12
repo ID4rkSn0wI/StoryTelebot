@@ -4,7 +4,7 @@ from telebot.types import Message
 from loguru import logger
 from database.database import User
 from database.database import db, create_user
-from handlers.custom_heandlers.any_message import any_message_handler
+from handlers.custom_handlers.any_message import any_message_handler
 
 
 @logger.catch
