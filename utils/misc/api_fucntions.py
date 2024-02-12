@@ -1,7 +1,8 @@
 import json
-from bs4 import BeautifulSoup
 import requests
 import uuid
+
+from utils.misc.request_to_api import make_post_to_api, make_get_to_api
 
 
 def get_token(auth_token, scope='GIGACHAT_API_PERS'):
@@ -24,14 +25,14 @@ def get_token(auth_token, scope='GIGACHAT_API_PERS'):
         'Authorization': f'Basic {auth_token}'
     }
 
-    payload = {
+    payload = json.dumps({
         'scope': scope
-    }
+    })
 
-    try:
+    if make_post_to_api(url, headers, payload):
         response = requests.post(url, headers=headers, data=payload, verify=False)
         return response.json()['access_token']
-    except requests.RequestException as e:
+    else:
         return None
 
 
@@ -70,7 +71,7 @@ def get_chat_completion(auth_token, user_message, conversation_history=None):
         'Authorization': f'Bearer {get_token(auth_token)}'
     }
 
-    try:
+    if make_post_to_api(url, headers, payload):
         response = requests.post(url, headers=headers, data=payload, verify=False)
         response_data = response.json()
         conversation_history.append({
@@ -79,7 +80,7 @@ def get_chat_completion(auth_token, user_message, conversation_history=None):
         })
 
         return response_data['choices'][0]['message']['content'], conversation_history
-    except requests.RequestException as e:
+    else:
         return None, conversation_history
 
 
@@ -102,7 +103,7 @@ def send_chat_request(auth_token, user_message):
         'Authorization': f'Bearer {get_token(auth_token)}',
     }
 
-    payload = {
+    payload = json.dumps({
         "model": "GigaChat:latest",
         "messages": [
             {
@@ -111,14 +112,13 @@ def send_chat_request(auth_token, user_message):
             },
         ],
         "temperature": 0.7
-    }
+    })
 
-    try:
-        response = requests.post(url, headers=headers, data=json.dumps(payload), verify=False)
+    if make_post_to_api(url, headers, payload):
+        response = requests.post(url, headers=headers, data=payload, verify=False)
         image = response.json()["choices"][0]["message"]["content"]
         load_image(image, auth_token)
-
-    except requests.RequestException as e:
+    else:
         return None
 
 
@@ -139,8 +139,10 @@ def load_image(response_img_tag, auth_token):
         'Authorization': f'Bearer {get_token(auth_token)}',
     }
 
-    response = requests.get(f'https://gigachat.devices.sberbank.ru/api/v1/files/{img_src}/content', headers=headers,
-                            verify=False)
+    url = f'https://gigachat.devices.sberbank.ru/api/v1/files/{img_src}/content'
 
-    with open('temp_image.jpg', 'wb') as file:
-        file.write(response.content)
+    if make_get_to_api(url, headers):
+        response = requests.get(url, headers=headers, verify=False)
+
+        with open('temp_image.jpg', 'wb') as file:
+            file.write(response.content)
