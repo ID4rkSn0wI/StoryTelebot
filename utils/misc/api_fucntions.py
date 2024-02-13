@@ -1,8 +1,7 @@
 import json
+
 import requests
 import uuid
-
-from utils.misc.request_to_api import make_post_to_api, make_get_to_api
 
 
 def get_token(auth_token, scope='GIGACHAT_API_PERS'):
@@ -25,12 +24,13 @@ def get_token(auth_token, scope='GIGACHAT_API_PERS'):
         'Authorization': f'Basic {auth_token}'
     }
 
-    payload = json.dumps({
+    payload = {
         'scope': scope
-    })
+    }
 
-    if make_post_to_api(url, headers, payload):
-        response = requests.post(url, headers=headers, data=payload, verify=False)
+    response = requests.post(url, headers=headers, data=payload, verify=False)
+
+    if response.status_code == requests.codes.ok:
         return response.json()['access_token']
     else:
         return None
@@ -71,9 +71,12 @@ def get_chat_completion(auth_token, user_message, conversation_history=None):
         'Authorization': f'Bearer {get_token(auth_token)}'
     }
 
-    if make_post_to_api(url, headers, payload):
-        response = requests.post(url, headers=headers, data=payload, verify=False)
+    # if make_post_to_api(url, headers, payload):
+    response = requests.post(url, headers=headers, data=payload, verify=False)
+
+    if response.status_code == requests.codes.ok:
         response_data = response.json()
+
         conversation_history.append({
             "role": "assistant",
             "content": response_data['choices'][0]['message']['content']
@@ -114,8 +117,8 @@ def send_chat_request(auth_token, user_message):
         "temperature": 0.7
     })
 
-    if make_post_to_api(url, headers, payload):
-        response = requests.post(url, headers=headers, data=payload, verify=False)
+    response = requests.post(url, headers=headers, data=payload, verify=False)
+    if response.status_code == requests.codes.ok:
         image = response.json()["choices"][0]["message"]["content"]
         load_image(image, auth_token)
     else:
@@ -141,8 +144,8 @@ def load_image(response_img_tag, auth_token):
 
     url = f'https://gigachat.devices.sberbank.ru/api/v1/files/{img_src}/content'
 
-    if make_get_to_api(url, headers):
-        response = requests.get(url, headers=headers, verify=False)
+    response = requests.get(url, headers=headers, verify=False)
 
+    if response.status_code == requests.codes.ok:
         with open('temp_image.jpg', 'wb') as file:
             file.write(response.content)

@@ -1,3 +1,6 @@
+import requests
+from urllib3.exceptions import InsecureRequestWarning
+
 from loader import bot
 import handlers
 from telebot.custom_filters import StateFilter
@@ -6,6 +9,7 @@ from loguru import logger
 
 
 if __name__ == '__main__':
+    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
     logger.add('debuglog.log', format='{time:YYYY-MM-DD at HH:mm:ss} | {name} : {function} : {line} | {message}',
                level='WARNING', rotation='1 day')
