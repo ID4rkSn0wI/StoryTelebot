@@ -8,7 +8,7 @@ from handlers.custom_handlers.any_message import any_message_handler
 
 @logger.catch
 @bot.message_handler(state='*', commands=['generate'])
-async def start_generating_generate(message: Message) -> None:
+async def start_generating(message: Message) -> None:
     """
     Данная функция позволяет пользователю настроить генерацию.
     :param message: сообщение
