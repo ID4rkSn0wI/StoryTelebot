@@ -1,12 +1,12 @@
 from telebot.types import Message
 from loader import bot
-from database.database import db, create_user
 from loguru import logger
 from handlers.custom_handlers.any_message import any_message_handler
 
 
+@logger.catch
 @bot.message_handler(func=lambda message: True)
-async def bot_echo(message):
+async def bot_echo(message: Message):
     """
     Данная функция обрабатывает неизвестные команды, выводя соответсвующее сообщение
     :param message: сообщение

@@ -3,7 +3,11 @@ import json
 import requests
 import uuid
 
+from utils.misc.request_to_api import make_get_to_api, make_post_to_api
+from loguru import logger
 
+
+@logger.catch
 async def get_token(auth_token, scope='GIGACHAT_API_PERS'):
     """
     Выполняет POST-запрос к эндпоинту, который выдает токен.
@@ -28,14 +32,13 @@ async def get_token(auth_token, scope='GIGACHAT_API_PERS'):
         'scope': scope
     }
 
-    response = requests.post(url, headers=headers, data=payload, verify=False)
-
-    if response.status_code == requests.codes.ok:
-        return response.json()['access_token']
+    if await make_post_to_api(url, headers, payload):
+        return requests.post(url, headers=headers, data=payload, verify=False).json()['access_token']
     else:
         return None
 
 
+@logger.catch
 async def get_chat_completion(auth_token, user_message, conversation_history=None):
     """
     Отправляет POST-запрос к API чата для получения ответа от модели GigaChat в рамках диалога.
@@ -50,7 +53,7 @@ async def get_chat_completion(auth_token, user_message, conversation_history=Non
 
     conversation_history.append({
         "role": "user",
-        "content": user_message
+        "content": "Придумай историю о " + user_message
     })
 
     payload = json.dumps({
@@ -71,11 +74,8 @@ async def get_chat_completion(auth_token, user_message, conversation_history=Non
         'Authorization': f'Bearer {await get_token(auth_token)}'
     }
 
-    # if make_post_to_api(url, headers, payload):
-    response = requests.post(url, headers=headers, data=payload, verify=False)
-
-    if response.status_code == requests.codes.ok:
-        response_data = response.json()
+    if await make_post_to_api(url, headers, payload):
+        response_data = requests.post(url, headers=headers, data=payload, verify=False).json()
 
         conversation_history.append({
             "role": "assistant",
@@ -84,9 +84,11 @@ async def get_chat_completion(auth_token, user_message, conversation_history=Non
 
         return response_data['choices'][0]['message']['content'], conversation_history
     else:
+        print(123)
         return None, conversation_history
 
 
+@logger.catch
 async def send_chat_request(auth_token, user_message):
     """
     Отправляет POST-запрос к API GigaChat для получения ответа от модели чата.
@@ -117,15 +119,17 @@ async def send_chat_request(auth_token, user_message):
         "temperature": 0.7
     })
 
-    response = requests.post(url, headers=headers, data=payload, verify=False)
-    if response.status_code == requests.codes.ok:
-        image = response.json()["choices"][0]["message"]["content"]
-        content = await load_image(image, auth_token)
-        return content
+    if await make_post_to_api(url, headers, payload):
+        image = requests.post(url, headers=headers, data=payload, verify=False).json()["choices"][0]["message"]["content"]
+        if '"' in image:
+            content = await load_image(image, auth_token)
+            return content
+        return None
     else:
         return None
 
 
+@logger.catch
 async def load_image(response_img_tag, auth_token):
     """
     Парсит изображение.
@@ -145,9 +149,7 @@ async def load_image(response_img_tag, auth_token):
 
     url = f'https://gigachat.devices.sberbank.ru/api/v1/files/{img_src}/content'
 
-    response = requests.get(url, headers=headers, verify=False)
-
-    if response.status_code == requests.codes.ok:
-        return response.content
+    if await make_get_to_api(url, headers):
+        return requests.get(url, headers=headers, verify=False).content
     else:
         return None
