@@ -2,9 +2,11 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from database.database import db, User
 from loader import bot
+from loguru import logger
 
 
-async def create_buttons(message, update=False) -> InlineKeyboardMarkup():
+@logger.catch
+async def create_buttons(message) -> InlineKeyboardMarkup():
     """
     Данная функция создает клавиатуру с местами поиска отелей, чтобы пользователь уточнил нужное место
     :return: InlineKeyboardMarkup()
@@ -12,8 +14,6 @@ async def create_buttons(message, update=False) -> InlineKeyboardMarkup():
     with db:
         user = User.get(telegram_id=message.chat.id)
         if_story, if_image = user.generate_story, user.generate_image
-        if not update:
-            user.keyboard = message.message_id + 1
         user.save()
     keyboard = InlineKeyboardMarkup()
     keyboard.add(InlineKeyboardButton(text=f"{'✅' if if_story else '➖'} Генерировать текст", callback_data='1'))
@@ -21,6 +21,7 @@ async def create_buttons(message, update=False) -> InlineKeyboardMarkup():
     return keyboard
 
 
+@logger.catch
 @bot.callback_query_handler(func=lambda call: True)
 async def callback_keyboard(call) -> None:
     """
@@ -40,5 +41,3 @@ async def callback_keyboard(call) -> None:
             user.save()
         await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                     text='Настройки генерации:', reply_markup=await create_buttons(call.message, True))
-
-

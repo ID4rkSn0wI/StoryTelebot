@@ -4,9 +4,10 @@ from database.database import db, create_user, User
 from loguru import logger
 
 
+@logger.catch
 async def any_message_handler(message: Message):
     """
-    Данная функция обрабатывает неизвестные команды, выводя соответсвующее сообщение
+    Данная функция создает пользователя, если его не было и убирает предыдущую клавиатуру
     :param message: сообщение
     :return: None
     """

@@ -1,4 +1,5 @@
 import peewee
+from loguru import logger
 
 
 db = peewee.SqliteDatabase('users.db', pragmas={
@@ -28,6 +29,7 @@ with db:
     User.create_table()
 
 
+@logger.catch
 def create_user(name, chat_id):
     with db:
         user = User.select().where(User.name == name, User.telegram_id == chat_id)
