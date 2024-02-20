@@ -67,3 +67,148 @@
 2024-02-13 at 14:32:02 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
 2024-02-13 at 14:32:03 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
 2024-02-13 at 14:32:03 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:21:49 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 10:22:33 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 10:28:01 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 10:28:50 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 10:28:50 | handlers.default_handlers.start : bot_start | chat_id 979991502 message text /start
+2024-02-20 at 10:29:14 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 10:29:14 | handlers.default_handlers.start : bot_start | chat_id 979991502 message text /start
+2024-02-20 at 10:29:28 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /help
+2024-02-20 at 10:29:28 | handlers.default_handlers.help : bot_help | chat_id 979991502 message text /help
+2024-02-20 at 10:29:31 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:29:31 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:32:10 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:32:10 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:32:24 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:32:24 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:32:56 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:32:56 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:32:58 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:32:58 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:33:26 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:33:27 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:33:30 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 10:33:30 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 10:33:35 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /exit
+2024-02-20 at 10:33:35 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text /exit
+2024-02-20 at 10:33:42 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:33:42 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:33:42 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:34:05 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:34:05 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:34:05 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:34:12 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 123
+2024-02-20 at 10:34:12 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 123
+2024-02-20 at 10:34:14 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 22
+2024-02-20 at 10:34:14 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 22
+2024-02-20 at 10:35:10 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:35:10 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:35:10 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:35:12 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 11
+2024-02-20 at 10:35:12 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 11
+2024-02-20 at 10:35:29 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:35:29 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:35:29 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:35:35 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 44
+2024-02-20 at 10:35:35 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 44
+2024-02-20 at 10:36:33 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:36:33 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:36:33 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:37:17 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:37:17 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:37:17 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:37:19 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 44
+2024-02-20 at 10:37:19 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 44
+2024-02-20 at 10:39:56 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:39:56 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:39:56 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:40:00 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 33
+2024-02-20 at 10:40:00 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 33
+2024-02-20 at 10:40:17 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:40:17 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:40:17 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:40:18 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 44
+2024-02-20 at 10:40:19 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 44
+2024-02-20 at 10:43:01 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:43:01 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:43:02 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:43:04 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 33
+2024-02-20 at 10:43:04 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 33
+2024-02-20 at 10:52:04 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:52:04 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:55:44 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:55:44 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:55:50 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text 44
+2024-02-20 at 10:55:50 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text 44
+2024-02-20 at 10:56:33 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:57:20 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:57:20 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:57:21 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 10:58:30 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 10:58:30 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 10:58:31 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:00:26 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:00:26 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:00:26 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:04:04 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:04:04 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:04:04 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:04:52 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 11:04:53 | handlers.default_handlers.start : bot_start | chat_id 979991502 message text /start
+2024-02-20 at 11:04:55 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:04:55 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:04:55 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:07:15 | states.write_story : any_state | Пользователь: 979991502 отменил состояние
+2024-02-20 at 11:07:19 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text E
+2024-02-20 at 11:07:19 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text E
+2024-02-20 at 11:10:33 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:10:33 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:10:33 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:11:29 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /generate
+2024-02-20 at 11:11:29 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 1494740746 message: /generate
+2024-02-20 at 11:11:49 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text i
+2024-02-20 at 11:11:50 | handlers.default_handlers.unknown_command : bot_echo | chat_id 1494740746 message text i
+2024-02-20 at 11:11:57 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text i
+2024-02-20 at 11:11:57 | handlers.default_handlers.unknown_command : bot_echo | chat_id 1494740746 message text i
+2024-02-20 at 11:12:04 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /generate
+2024-02-20 at 11:12:04 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 1494740746 message: /generate
+2024-02-20 at 11:12:04 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 1494740746 находится в состоянии write_story
+2024-02-20 at 11:13:12 | states.write_story : any_state | Пользователь: 1494740746 отменил состояние
+2024-02-20 at 11:13:14 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /settings
+2024-02-20 at 11:13:14 | handlers.custom_handlers.settings : settings | chat_id: 1494740746 message: /settings
+2024-02-20 at 11:13:18 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /settings
+2024-02-20 at 11:13:18 | handlers.custom_handlers.settings : settings | chat_id: 1494740746 message: /settings
+2024-02-20 at 11:13:19 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /generate
+2024-02-20 at 11:13:19 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 1494740746 message: /generate
+2024-02-20 at 11:13:20 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 1494740746 находится в состоянии write_story
+2024-02-20 at 11:14:36 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text Манекен
+2024-02-20 at 11:14:37 | handlers.default_handlers.unknown_command : bot_echo | chat_id 979991502 message text Манекен
+2024-02-20 at 11:14:39 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /settings
+2024-02-20 at 11:14:39 | handlers.custom_handlers.settings : settings | chat_id: 979991502 message: /settings
+2024-02-20 at 11:14:40 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:14:40 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:14:40 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:21:59 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /generate
+2024-02-20 at 11:21:59 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 1494740746 message: /generate
+2024-02-20 at 11:21:59 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:21:59 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:21:59 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 1494740746 находится в состоянии write_story
+2024-02-20 at 11:21:59 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:23:54 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /start
+2024-02-20 at 11:23:55 | handlers.default_handlers.start : bot_start | chat_id 979991502 message text /start
+2024-02-20 at 11:23:57 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:23:57 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:23:58 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:24:00 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /generate
+2024-02-20 at 11:24:00 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 1494740746 message: /generate
+2024-02-20 at 11:24:00 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 1494740746 находится в состоянии write_story
+2024-02-20 at 11:27:00 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:27:00 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:27:01 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story
+2024-02-20 at 11:27:40 | handlers.custom_handlers.any_message : any_message_handler | chat_id 1494740746 message text /generate
+2024-02-20 at 11:27:40 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 1494740746 message: /generate
+2024-02-20 at 11:27:40 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 1494740746 находится в состоянии write_story
+2024-02-20 at 11:27:43 | handlers.custom_handlers.any_message : any_message_handler | chat_id 979991502 message text /generate
+2024-02-20 at 11:27:43 | handlers.custom_handlers.generate : start_generating_generate | chat_id: 979991502 message: /generate
+2024-02-20 at 11:27:43 | handlers.custom_handlers.generate : start_generating_generate | Пользователь: 979991502 находится в состоянии write_story

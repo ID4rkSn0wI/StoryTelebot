@@ -4,7 +4,7 @@ from database.database import db, User
 from loader import bot
 
 
-def create_buttons(message, update=False) -> InlineKeyboardMarkup():
+async def create_buttons(message, update=False) -> InlineKeyboardMarkup():
     """
     Данная функция создает клавиатуру с местами поиска отелей, чтобы пользователь уточнил нужное место
     :return: InlineKeyboardMarkup()
@@ -22,7 +22,7 @@ def create_buttons(message, update=False) -> InlineKeyboardMarkup():
 
 
 @bot.callback_query_handler(func=lambda call: True)
-def callback_keyboard(call) -> None:
+async def callback_keyboard(call) -> None:
     """
     Данная функция-обработчик выбора в клавиатуре
     :param call: сообщение в клавиатуре
@@ -38,7 +38,7 @@ def callback_keyboard(call) -> None:
             if call.data == '2':
                 user.generate_image = not if_image
             user.save()
-        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text='Настройки генерации:', reply_markup=create_buttons(call.message, True))
+        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                                    text='Настройки генерации:', reply_markup=await create_buttons(call.message, True))
 
 

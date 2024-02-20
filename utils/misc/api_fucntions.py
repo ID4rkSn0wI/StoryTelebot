@@ -4,7 +4,7 @@ import requests
 import uuid
 
 
-def get_token(auth_token, scope='GIGACHAT_API_PERS'):
+async def get_token(auth_token, scope='GIGACHAT_API_PERS'):
     """
     Выполняет POST-запрос к эндпоинту, который выдает токен.
 
@@ -36,7 +36,7 @@ def get_token(auth_token, scope='GIGACHAT_API_PERS'):
         return None
 
 
-def get_chat_completion(auth_token, user_message, conversation_history=None):
+async def get_chat_completion(auth_token, user_message, conversation_history=None):
     """
     Отправляет POST-запрос к API чата для получения ответа от модели GigaChat в рамках диалога.
 
@@ -68,7 +68,7 @@ def get_chat_completion(auth_token, user_message, conversation_history=None):
     headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Authorization': f'Bearer {get_token(auth_token)}'
+        'Authorization': f'Bearer {await get_token(auth_token)}'
     }
 
     # if make_post_to_api(url, headers, payload):
@@ -87,7 +87,7 @@ def get_chat_completion(auth_token, user_message, conversation_history=None):
         return None, conversation_history
 
 
-def send_chat_request(auth_token, user_message):
+async def send_chat_request(auth_token, user_message):
     """
     Отправляет POST-запрос к API GigaChat для получения ответа от модели чата.
 
@@ -103,7 +103,7 @@ def send_chat_request(auth_token, user_message):
 
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {get_token(auth_token)}',
+        'Authorization': f'Bearer {await get_token(auth_token)}',
     }
 
     payload = json.dumps({
@@ -120,12 +120,13 @@ def send_chat_request(auth_token, user_message):
     response = requests.post(url, headers=headers, data=payload, verify=False)
     if response.status_code == requests.codes.ok:
         image = response.json()["choices"][0]["message"]["content"]
-        load_image(image, auth_token)
+        content = await load_image(image, auth_token)
+        return content
     else:
         return None
 
 
-def load_image(response_img_tag, auth_token):
+async def load_image(response_img_tag, auth_token):
     """
     Парсит изображение.
 
@@ -139,7 +140,7 @@ def load_image(response_img_tag, auth_token):
 
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {get_token(auth_token)}',
+        'Authorization': f'Bearer {await get_token(auth_token)}',
     }
 
     url = f'https://gigachat.devices.sberbank.ru/api/v1/files/{img_src}/content'
@@ -147,5 +148,6 @@ def load_image(response_img_tag, auth_token):
     response = requests.get(url, headers=headers, verify=False)
 
     if response.status_code == requests.codes.ok:
-        with open('temp_image.jpg', 'wb') as file:
-            file.write(response.content)
+        return response.content
+    else:
+        return None
