@@ -18,6 +18,7 @@ class BaseModel(peewee.Model):
 class User(BaseModel):
     name = peewee.CharField()
     telegram_id = peewee.IntegerField()
+    ready_state = peewee.CharField(null=True)
     state = peewee.CharField(null=True)
     keyboard = peewee.IntegerField(null=True)
     generate_story = peewee.BooleanField()
@@ -37,7 +38,8 @@ def create_user(name, chat_id):
             User.create(
                 name=name,
                 telegram_id=chat_id,
-                state='ready',
+                ready_state='ready',
+                state='main',
                 keyboard=0,
                 generate_story=True,
                 generate_image=False

@@ -4,7 +4,7 @@ from loguru import logger
 
 
 @logger.catch
-async def make_get_to_api(url: str, request_headers: dict) -> False:
+def make_get_to_api(url: str, request_headers: dict) -> False:
     """
     Данная функция делает request в API и проверяет, чтобы всё было исправно
     :param url: ссылка для поиска
@@ -31,7 +31,7 @@ async def make_get_to_api(url: str, request_headers: dict) -> False:
 
 
 @logger.catch
-async def make_post_to_api(url: str, request_headers: dict, data) -> False:
+def make_post_to_api(url: str, request_headers: dict, data) -> False:
     """
     Данная функция делает request в API и проверяет, чтобы всё было исправно
     :param url: ссылка для поиска

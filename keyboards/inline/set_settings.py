@@ -6,7 +6,7 @@ from loguru import logger
 
 
 @logger.catch
-async def create_buttons(message) -> InlineKeyboardMarkup():
+def create_buttons(message) -> InlineKeyboardMarkup():
     """
     Данная функция создает клавиатуру с местами поиска отелей, чтобы пользователь уточнил нужное место
     :return: InlineKeyboardMarkup()
@@ -23,7 +23,7 @@ async def create_buttons(message) -> InlineKeyboardMarkup():
 
 @logger.catch
 @bot.callback_query_handler(func=lambda call: True)
-async def callback_keyboard(call) -> None:
+def callback_keyboard(call) -> None:
     """
     Данная функция-обработчик выбора в клавиатуре
     :param call: сообщение в клавиатуре
@@ -39,5 +39,5 @@ async def callback_keyboard(call) -> None:
             if call.data == '2':
                 user.generate_image = not if_image
             user.save()
-        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                                    text='Настройки генерации:', reply_markup=await create_buttons(call.message, True))
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                                    text='Настройки генерации:', reply_markup=create_buttons(call.message))

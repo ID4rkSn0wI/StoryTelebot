@@ -1,12 +1,11 @@
 import requests
-from telebot.asyncio_filters import StateFilter
+from telebot.custom_filters import StateFilter
 from urllib3.exceptions import InsecureRequestWarning
 
 from loader import bot
 import handlers
 from utils.set_bot_commands import set_default_commands
 from loguru import logger
-import asyncio
 
 
 if __name__ == '__main__':
@@ -20,5 +19,5 @@ if __name__ == '__main__':
                level='INFO', rotation='1 day')
 
     bot.add_custom_filter(StateFilter(bot))
-    asyncio.run(set_default_commands(bot))
-    asyncio.run(bot.polling())
+    set_default_commands(bot)
+    bot.infinity_polling()

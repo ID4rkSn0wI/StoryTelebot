@@ -8,17 +8,20 @@ from handlers.custom_handlers.any_message import any_message_handler
 
 @logger.catch
 @bot.message_handler(commands=['settings'])
-async def settings(message: Message) -> None:
+def settings(message: Message) -> None:
     """
     Данная функция позволяет пользователю настроить генерацию.
     :param message: сообщение
     :return: None
     """
 
-    await any_message_handler(message)
+    any_message_handler(message)
+    # with db:
+    #     user = User.get(telegram_id=message.chat.id)
+    #     user.state = 'generate_and_settings'
     logger.info(f'chat_id: {message.chat.id} message: {message.text}')
-    keyboard_id = await bot.send_message(message.chat.id, 'Настройки генерации: ', reply_markup=await create_buttons(message))
-    keyboard_id = keyboard_id.id
+    keyboard = bot.send_message(message.chat.id, 'Настройки генерации: ', reply_markup=create_buttons(message))
+    keyboard_id = keyboard.id
     with db:
         user = User.get(telegram_id=message.chat.id)
         user.keyboard = keyboard_id
